@@ -55,15 +55,9 @@ export default function RegisterPage() {
       }
 
       setSuccess(true);
-    } catch (err) {
+    } catch (err: any) {
       setError('Terjadi kesalahan. Silakan coba lagi.');
-      console.error('Register error:', {
-        message: err?.message || 'Unknown error',
-        code: err?.code,
-        details: err?.details,
-        hint: err?.hint,
-        error: err
-      });
+      console.error('Register error:', err);
     } finally {
       setIsLoading(false);
     }

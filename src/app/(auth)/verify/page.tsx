@@ -1,12 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import { ROUTES } from '@/lib/constants';
 
-export default function VerifyPage() {
+function VerifyContent() {
   const [isLoading, setIsLoading] = useState(true);
   const [isVerified, setIsVerified] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -117,4 +117,24 @@ export default function VerifyPage() {
   }
 
   return null;
+}
+
+export default function VerifyPage() {
+  return (
+    <Suspense fallback={
+      <div className="card">
+        <div className="card-content text-center py-12">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto mb-4"></div>
+          <h1 className="text-xl font-semibold text-gray-900 mb-2">
+            Memuat...
+          </h1>
+          <p className="text-gray-600">
+            Mohon tunggu sebentar.
+          </p>
+        </div>
+      </div>
+    }>
+      <VerifyContent />
+    </Suspense>
+  );
 }

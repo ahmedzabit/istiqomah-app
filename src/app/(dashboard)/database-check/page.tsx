@@ -10,7 +10,8 @@ import {
   XCircleIcon, 
   ExclamationTriangleIcon,
   ArrowLeftIcon,
-  DatabaseIcon
+  ServerIcon,
+  ServerStackIcon as DatabaseIcon
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { ROUTES } from '@/lib/constants';
@@ -270,7 +271,7 @@ export default function DatabaseCheckPage() {
         <CardContent className="pt-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <DatabaseIcon className="w-8 h-8 text-blue-500" />
+              <ServerIcon className="w-8 h-8 text-blue-500" />
               <div>
                 <h3 className="font-medium text-gray-900">Database Status Check</h3>
                 <p className="text-sm text-gray-500">
@@ -390,3 +391,6 @@ export default function DatabaseCheckPage() {
     </div>
   );
 }
+
+
+

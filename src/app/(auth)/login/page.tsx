@@ -52,15 +52,9 @@ export default function LoginPage() {
       // Redirect to dashboard
       router.push(ROUTES.DASHBOARD);
       router.refresh();
-    } catch (err) {
+    } catch (err: any) {
       setError('Terjadi kesalahan. Silakan coba lagi.');
-      console.error('Login error:', {
-        message: err?.message || 'Unknown error',
-        code: err?.code,
-        details: err?.details,
-        hint: err?.hint,
-        error: err
-      });
+      console.error('Login error:', err);
     } finally {
       setIsLoading(false);
     }
